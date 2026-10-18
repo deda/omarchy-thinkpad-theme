@@ -29,6 +29,17 @@ ln -s ~/repos/omarchy-thinkpad-theme ~/.config/omarchy/themes/thinkpad
 omarchy theme set thinkpad
 ```
 
+Then run the setup script once. Omarchy doesn't theme tmux or fastfetch itself, so
+this installs two theme-set hooks and points tmux at the theme's colors:
+
+```bash
+~/.config/omarchy/themes/thinkpad/setup.sh
+```
+
+It's safe to re-run, and it doesn't lock tmux or fastfetch to this theme: with
+any theme that doesn't ship a `tmux.conf` or `fastfetch.jsonc`, they fall back to
+their usual configs.
+
 ## 🎨 What's included
 
 | File | Purpose |
@@ -39,7 +50,9 @@ omarchy theme set thinkpad
 | `shell.lock.toml` | Translucent lock-screen field with a red ring (dark red idle, TrackPoint red while typing, light red on a wrong password) |
 | `shell.launcher.toml`, `shell.menu.toml` | Muted borders, lavender selection |
 | `btop.theme` | Red-boxed btop |
-| `tmux.conf`, `fastfetch.jsonc` | Opt-in extras, see below |
+| `tmux.conf` | Red session pill and current window, grey inactive windows, lavender prefix and yellow copy-mode indicators, dark red active pane border |
+| `fastfetch.jsonc` | Omarchy's fastfetch layout with a red logo and hardware keys |
+| `setup.sh`, `hooks/` | One-time setup that wires up `tmux.conf` and `fastfetch.jsonc` |
 | `hyprland-preview-share-picker.css`, `warp.yaml`, `icons.theme`, `chromium.theme`, `keyboard.rgb` | App extras |
 
 ### Palette
@@ -113,46 +126,4 @@ Save this to:
   ██   ██ ██ ██ ██ ██ ██▐█▌ ██    ██ ██ ██ ██
   ██   ██ ██ ██ ██ ██ ██ ██ ██    ██▟██ ██▟██
   ▀▀   ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀    ▝▀▘▀▀ ▝▀▘▀
-```
-
-### 3. Red accents
-Omarchy's fastfetch config colors the logo and hardware keys with ANSI green,
-which is green in this palette. The theme ships `fastfetch.jsonc` (the stock
-config with those switched to red). Install this theme-set hook to use it while
-the theme is active and fall back to the stock config otherwise:
-
-```bash
-cat > /tmp/fastfetch-theme.sh <<'HOOK'
-#!/bin/bash
-THEME_FASTFETCH="$HOME/.local/state/omarchy/current/theme/fastfetch.jsonc"
-USER_FASTFETCH="$HOME/.config/fastfetch/config.jsonc"
-if [[ -f $THEME_FASTFETCH ]]; then
-  [[ -e $USER_FASTFETCH && ! -L $USER_FASTFETCH ]] && exit 0
-  mkdir -p "${USER_FASTFETCH%/*}"
-  ln -nsf "$THEME_FASTFETCH" "$USER_FASTFETCH"
-elif [[ -L $USER_FASTFETCH && $(readlink "$USER_FASTFETCH") == "$THEME_FASTFETCH" ]]; then
-  rm "$USER_FASTFETCH"
-fi
-HOOK
-omarchy hook install theme-set /tmp/fastfetch-theme.sh
-```
-
-## 🪟 Optional: tmux
-
-Omarchy doesn't theme the tmux status bar, so this theme ships a `tmux.conf`.
-Load it at the end of `~/.config/tmux/tmux.conf`:
-
-```tmux
-source-file -q ~/.local/state/omarchy/current/theme/tmux.conf
-```
-
-To restyle running sessions whenever you switch themes, install a theme-set hook:
-
-```bash
-cat > /tmp/tmux-theme.sh <<'HOOK'
-#!/bin/bash
-tmux list-sessions >/dev/null 2>&1 || exit 0
-tmux source-file "$HOME/.config/tmux/tmux.conf" >/dev/null 2>&1 || true
-HOOK
-omarchy hook install theme-set /tmp/tmux-theme.sh
 ```
