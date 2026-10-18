@@ -1,0 +1,8 @@
+# Ported from mako.ini: lavender border on the theme background.
+background       = "#050709"
+background-alpha = 1.0
+text             = "#ffffff"
+border           = "#8686ba"
+border-alpha     = 1.0
+border-width     = 2
+countdown        = "#8686ba"

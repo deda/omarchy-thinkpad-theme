@@ -1,0 +1,13 @@
+# Ported from walker.css: muted border, lavender selected text.
+background                = "#050709"
+background-alpha          = 1.0
+text                      = "#ffffff"
+border                    = "#4a4a4a"
+border-alpha              = 1.0
+scrim                     = "#050709"
+scrim-alpha               = 0.5
+selected-background       = "#ffffff"
+selected-background-alpha = 0.08
+selected-text             = "#8686ba"
+selected-border           = "#4a4a4a"
+selected-border-alpha     = 0.6
