@@ -36,7 +36,7 @@ omarchy theme set thinkpad
 | `colors.toml` | Semantic Quattro palette. Omarchy generates alacritty, kitty, ghostty, foot, Neovim, Obsidian, VS Code, Helix and more from it |
 | `hyprland.lua` | Gaps, rounding, shadows, red `#8b0000` borders and a minimal indicator-style groupbar |
 | `shell.notifications.toml` | Lavender-bordered notifications |
-| `shell.lock.toml` | Translucent lock-screen field, lavender ring that turns purple while typing |
+| `shell.lock.toml` | Translucent lock-screen field with a red ring (dark red idle, TrackPoint red while typing, light red on a wrong password) |
 | `shell.launcher.toml`, `shell.menu.toml` | Muted borders, lavender selection |
 | `btop.theme` | Red-boxed btop |
 | `tmux.conf`, `fastfetch.jsonc` | Opt-in extras, see below |

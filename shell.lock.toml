@@ -1,13 +1,13 @@
-# Ported from hyprlock.conf: translucent field, lavender ring that turns
-# purple while typing/authenticating.
+# Translucent field with a red ring: dark red (window border) when idle,
+# TrackPoint red while typing/authenticating, light red on a wrong password.
 background       = "#050709"
 background-alpha = 0.66
 text             = "#ffffff"
 placeholder      = "#b3b3b3"
-text-error       = "#d24646"
-border           = "#8686ba"
-border-active    = "#a360a3"
-border-error     = "#d24646"
+text-error       = "#e99999"
+border           = "#8b0000"
+border-active    = "#d24646"
+border-error     = "#e99999"
 border-alpha     = 1.0
-selection        = "#8686ba"
+selection        = "#d24646"
 selection-alpha  = 0.45
