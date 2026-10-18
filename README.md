@@ -58,6 +58,28 @@ Save this to:
   ▀▀   ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀    ▝▀▘▀▀ ▝▀▘▀
 ```
 
+### 3. Red accents
+Omarchy's fastfetch config colors the logo and hardware keys with ANSI green,
+which is green in this palette. The theme ships `fastfetch.jsonc` (the stock
+config with those switched to red). Install this theme-set hook to use it while
+the theme is active and fall back to the stock config otherwise:
+
+```bash
+cat > /tmp/fastfetch-theme.sh <<'HOOK'
+#!/bin/bash
+THEME_FASTFETCH="$HOME/.local/state/omarchy/current/theme/fastfetch.jsonc"
+USER_FASTFETCH="$HOME/.config/fastfetch/config.jsonc"
+if [[ -f $THEME_FASTFETCH ]]; then
+  [[ -e $USER_FASTFETCH && ! -L $USER_FASTFETCH ]] && exit 0
+  mkdir -p "${USER_FASTFETCH%/*}"
+  ln -nsf "$THEME_FASTFETCH" "$USER_FASTFETCH"
+elif [[ -L $USER_FASTFETCH && $(readlink "$USER_FASTFETCH") == "$THEME_FASTFETCH" ]]; then
+  rm "$USER_FASTFETCH"
+fi
+HOOK
+omarchy hook install theme-set /tmp/fastfetch-theme.sh
+```
+
 ## 🪟 Optional: tmux
 
 Omarchy doesn't theme the tmux status bar, so this theme ships a `tmux.conf`.
