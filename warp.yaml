@@ -8,7 +8,7 @@ details: darker
 terminal_colors:
   normal:
     black:   "#050709"
-    red:     "#d24646"
+    red:     "#da1e28"
     green:   "#66a773"
     yellow:  "#b4b47b"
     blue:    "#727272"
@@ -17,7 +17,7 @@ terminal_colors:
     white:   "#ffffff"
   bright:
     black:   "#4a4a4a"
-    red:     "#e99999"
+    red:     "#fa4d56"
     green:   "#a3cfa8"
     yellow:  "#dadaba"
     blue:    "#adadad"

@@ -1,5 +1,5 @@
 local active_border_color = "rgb(8b0000)"
-local active_tab_color = "rgb(d24646)"
+local active_tab_color = "rgb(da1e28)"
 
 hl.config({
   general = {

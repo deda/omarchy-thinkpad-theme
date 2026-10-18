@@ -61,7 +61,7 @@ their usual configs.
 |------|-------|------|-------|
 | background | `#050709` | foreground | `#ffffff` |
 | accent / blue | `#727272` | muted | `#4a4a4a` |
-| red | `#d24646` | bright red | `#e99999` |
+| red | `#da1e28` | bright red | `#fa4d56` |
 | green | `#66a773` | bright green | `#a3cfa8` |
 | yellow | `#b4b47b` | bright yellow | `#dadaba` |
 | magenta | `#8686ba` | bright magenta | `#afafd2` |

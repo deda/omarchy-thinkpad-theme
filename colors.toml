@@ -21,7 +21,7 @@ selection_background = "#727272"
 # notifications, polkit and lock-screen borders.
 hyprland_active_border = "#8b0000"
 
-red = "#d24646"
+red = "#da1e28"
 yellow = "#b4b47b"
 orange = "#d27a46"
 green = "#66a773"
@@ -30,7 +30,7 @@ blue = "#727272"
 magenta = "#8686ba"
 brown = "#993426"
 
-bright_red = "#e99999"
+bright_red = "#fa4d56"
 bright_yellow = "#dadaba"
 bright_green = "#a3cfa8"
 bright_cyan = "#c296c2"
