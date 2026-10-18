@@ -1,8 +1,8 @@
-# Ported from mako.ini: lavender border on the theme background.
+# Dark red border matching the window border, TrackPoint red countdown.
 background       = "#050709"
 background-alpha = 1.0
 text             = "#ffffff"
-border           = "#8686ba"
+border           = "#8b0000"
 border-alpha     = 1.0
 border-width     = 2
-countdown        = "#8686ba"
+countdown        = "#d24646"
